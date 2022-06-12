@@ -28,6 +28,7 @@ public class MooveAgents : MonoBehaviour {
         }
 
         _nowPlace = moveTo;
-        _agent.SetDestination(moveTo.position);
+        if(_agent.enabled)
+            _agent.SetDestination(moveTo.position);
     }
 }

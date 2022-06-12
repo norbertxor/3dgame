@@ -18,13 +18,17 @@ public class EnemuAttack : MonoBehaviour {
 
     private void OnTriggerStay(Collider other) {
         if (other.CompareTag("Player"))
-            _agent.SetDestination(other.transform.parent.gameObject.transform.position);
+            if(_agent.enabled)
+                _agent.SetDestination(other.transform.parent.gameObject.transform.position);
         
         if(other.CompareTag("Attack"))
-            if (dmg == null) {
+            if (dmg == null && !PlayerHealth.isDeath) {
                 dmg = StartCoroutine(SetDamage(other));
                 _animator.SetBool("isAttack", true);
             }
+        
+        if(other.CompareTag("Attack") && PlayerHealth.isDeath)
+            StopCoroutine(dmg);
 
     }
 
@@ -40,7 +44,8 @@ public class EnemuAttack : MonoBehaviour {
     
     IEnumerator SetDamage(Collider other) {
         while (true) {
-            other.transform.parent.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
+            if(_agent.enabled)
+                other.transform.parent.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
             yield return new WaitForSeconds(1f);
         }
     }
