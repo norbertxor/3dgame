@@ -16,6 +16,8 @@ public class PlayerHealth : MonoBehaviour {
     public void TakeDamage(float damage) {
         if(health <= 0)
             return;
+        if (BuhloController.isInvulnerability)
+            damage = 0;
         health -= damage;
         SetHealthBar();
         if (health <= 0 && !isDeath) {

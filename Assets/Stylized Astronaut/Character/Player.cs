@@ -39,6 +39,7 @@ public class Player : MonoBehaviour {
 				anim.SetTrigger("Jumping");
 				anim.SetBool("isJump", true);
 			}
+
 		}
 	}
 
