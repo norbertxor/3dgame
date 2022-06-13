@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour {
 
-    private int _damage = 10;
+    private float _damage = 10;
     private bool _isAttack;
     private Collider _monster;
     private Animator _animator;

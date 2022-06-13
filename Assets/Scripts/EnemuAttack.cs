@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemuAttack : MonoBehaviour {
     
-    public int damage = 5;
+    public float damage = 5;
     private Coroutine dmg;
     
     private NavMeshAgent _agent;
