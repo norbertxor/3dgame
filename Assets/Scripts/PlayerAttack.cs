@@ -7,9 +7,11 @@ public class PlayerAttack : MonoBehaviour {
     private bool _isAttack;
     private Collider _monster;
     private Animator _animator;
+    private AudioSource _kickSound;
 
     private void Start() {
         _animator = transform.parent.GetComponent<Animator>();
+        _kickSound = GetComponent<AudioSource>();
     }
 
 
@@ -17,6 +19,7 @@ public class PlayerAttack : MonoBehaviour {
         if (Input.GetMouseButtonDown(0) && _isAttack && _monster != null && !PlayerHealth.isDeath) {
             _monster.GetComponent<EnemyHealth>().TakeDamage(_damage);
             _animator.SetTrigger("Attack");
+            _kickSound.Play();
         }
     }
 

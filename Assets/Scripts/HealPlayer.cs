@@ -14,7 +14,7 @@ public class HealPlayer : MonoBehaviour {
         
         if (other.CompareTag("Enemy")) {
             EnemyHealth enemyHealth = other.GetComponent<EnemyHealth>();
-            if (enemyHealth.canHeal && enemyHealth.isDeath && Input.GetKeyUp(KeyCode.F)) {
+            if (enemyHealth.canHeal && enemyHealth.isDeath && Input.GetKeyUp(KeyCode.E)) {
                 enemyHealth.canHeal = false;
                 enemyHealth.SetNewColor(Color.gray);
                 _playerHealth.health += 10f;
