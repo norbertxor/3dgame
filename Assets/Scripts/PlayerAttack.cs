@@ -16,7 +16,7 @@ public class PlayerAttack : MonoBehaviour {
 
 
     private void Update() {
-        if (Input.GetMouseButtonDown(0) && _isAttack && _monster != null && !PlayerHealth.isDeath) {
+        if (Input.GetMouseButtonDown(1) && _isAttack && _monster != null && !PlayerHealth.isDeath) {
             _monster.GetComponent<EnemyHealth>().TakeDamage(_damage);
             _animator.SetTrigger("Attack");
             _kickSound.Play();
